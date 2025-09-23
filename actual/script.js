@@ -1,7 +1,8 @@
 const subjects = {
-    MATH: { //ganti link
+    MATHEMATICS: { 
         image: "Viper2.png",
-      line: "QUICK MAFS",
+        logo: "ViperLogo.png",
+      line: "Mathematics",
       lessons: [
         { title: "Functions", url: "https://www.youtube.com/watch?v=5D5b3c1DjZw" },
         { title: "Limits", url: "https://www.youtube.com/watch?v=YNstP0ESndU" },
@@ -12,9 +13,10 @@ const subjects = {
         { title: "Transcendants Functions", url: "https://www.youtube.com/watch?v=F_u6vAWmWl0" }
       ]
     },
-    CHEM: {
+    CHEMISTRY: {
       image: "Viper2.png",
-      line: "Chemistry Help",
+      logo: "ViperLogo.png",
+      line: "General Chemistry",
       lessons: [
         { title: "Elements, Molecules and The Periodic Table", url: "https://www.youtube.com/watch?v=TXEXWN8J8BE" },
         { title: "The Concept of Moles and Stoichiometry", url: "https://www.youtube.com/watch?v=UPhIEtYKjd8" },
@@ -25,29 +27,34 @@ const subjects = {
         { title: "Solids", url: "https://www.youtube.com/watch?v=Z57pyi7Y5lg" }
       ]
     },
-    ENGLISH: { //ganti link
+    ENGLISH: { 
         image: "Viper2.png",
-        line: "Come on England!",
+        logo: "ViperLogo.png",
+        line: "English Language",
         lessons: [
           { title: "Past Tense, Present Tense, Future Tense", url: "https://www.youtube.com/watch?v=ld7RqdoRAM0" },
           { title: "Grammar", url: "https://www.youtube.com/watch?v=QXVzmzhxWWc" },
           { title: "Vocabulary", url: "https://www.youtube.com/watch?v=u1QVJ77GGgg" },
-          { title: "Pronunciation", url: "https://www.youtube.com/watch?v=NgwlinpopRQ" }
+          { title: "Pronunciation", url: "https://www.youtube.com/watch?v=NgwlinpopRQ" },
+          { title: "Advanced English", url: "https://www.youtube.com/watch?v=Iv4F-YV0TxY"}
         ]
       },
     SPORTS: {
       image: "Viper2.png",
-      line: "Train your body, train your mind!",
+      logo: "ViperLogo.png",
+      line: "Sports",
       lessons: [
         { title: "Warm-up and Stretching Basics", url: "https://www.youtube.com/watch?v=2L2lnxIcNmo" },
         { title: "Cardio Training 101", url: "https://www.youtube.com/watch?v=ml6cT4AZdqI" },
         { title: "Strength Training for Beginners", url: "https://www.youtube.com/watch?v=k1a2tbhbPXY" },
-        { title: "Importance of Rest and Recovery", url: "https://www.youtube.com/watch?v=9z5sPZPjMsk" }
+        { title: "Importance of Rest and Recovery", url: "https://www.youtube.com/watch?v=9z5sPZPjMsk" },
+        { title: "Football Tactics", url: "https://www.youtube.com/watch?v=4wAG5ZUJ4eI"}
       ]
     },
-    AI: { //ganti link
+    AI: {
         image: "Viper2.png",
-        line: "Ultronn!",
+        logo: "ViperLogo.png",
+        line: "Artificial Intelligence and Data Literacy",
         lessons: [
           { title: "Types of Data and Sampling Methods", url: "https://www.youtube.com/watch?v=jk68oU9nu5E" },
           { title: "Exploratory Data Analysis (EDA)", url: "https://www.youtube.com/watch?v=Liv6eeb1VfE" },
@@ -63,10 +70,11 @@ const subjects = {
   };
 
 
-const navItems = document.querySelectorAll("nav li");
+const navItems = document.querySelectorAll(".sub-header nav li");
 const characterBg = document.querySelector(".character-bg");
 const starterLine = document.querySelector(".starter-line");
 const lessonsContainer = document.querySelector(".lessons");
+const logobg = document.querySelector(".logo-bg");
 
 
 function loadSubject(subject) {
@@ -74,6 +82,7 @@ function loadSubject(subject) {
   if (!data) return;
 
   characterBg.style.backgroundImage = `url(${data.image})`;
+  logobg.style.backgroundImage = `url(${data.logo})`;
   starterLine.textContent = data.line;
 
   lessonsContainer.innerHTML = "";
@@ -95,8 +104,8 @@ function loadSubject(subject) {
 
 function getTabIndex(subject) {
   switch(subject) {
-    case "MATH": return 1;
-    case "CHEM": return 2;
+    case "MATHEMATICS": return 1;
+    case "CHEMISTRY": return 2;
     case "ENGLISH": return 3;
     case "SPORTS": return 4;
     case "AI": return 5;
@@ -110,4 +119,4 @@ navItems.forEach(item => {
   });
 });
 
-loadSubject("MATH");
+loadSubject("MATHEMATICS");

@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #1a1a1a; 
+    background-color: #37003c; 
     color: white;
   }
   
@@ -11,9 +11,9 @@ body {
     top: 0;
     align-items: center;
     justify-content: space-between;
-    background: #2a2a2a;
+    background: #1e0021;
     padding: 10px 20px;
-    z-index: 10;
+    z-index: 100;
   }
   
   header h1 {
@@ -47,19 +47,64 @@ body {
     justify-content: center;
     height: 500px;
     text-align: center;
+    background: #37003c;
+    z-index: 0;
   }
   
+  .sub-header{
+    background: #1e0021;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 68px;
+    z-index: 50;
+  }
+
+  .sub-header nav ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sub-header nav li{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    padding: 15px 30px;
+    cursor: pointer;
+  }
+
+  .sub-header nav li.active{
+    background: cyan;
+    color: black;
+  }
+
   .character-bg {
     position: absolute;
     bottom: 0;
     left: 20%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
     z-index: 0;
+    pointer-events: none;
+  }
+
+  .logo-bg{
+    position: absolute;
+    bottom: 1;
+    left: 22%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 650px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: -1;
     pointer-events: none;
   }
   
@@ -68,20 +113,21 @@ body {
     font-size: 2rem;
     font-style: italic;
     z-index: 1;
+    background: #37003c;
   }
   
   .lessons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: -100px;
+    margin-top: -110px;
     position: relative;
     z-index: 2;
     gap: 15px;
-    padding: 20px;
+    background: #37003c;
   }
   
   .lesson-card {
-    background: green;
+    background: #28002b;
     display: block;
     color: white;
     padding: 40px;
@@ -94,13 +140,13 @@ body {
   
   .lesson-card:hover {
     transform: scale(1.07);
-    background: limegreen;
+    background: #b800c5;
   }
   
   footer {
     text-align: center;
-    padding: 10px;
-    background: #2a2a2a;
-    margin-top: 20px;
+    padding: 15px;
+    background: #1e0021;
+    z-index: 50;
   }
   
