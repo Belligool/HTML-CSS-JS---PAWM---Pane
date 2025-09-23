@@ -53,11 +53,13 @@ body {
   
   .sub-header{
     background: #1e0021;
-    display: flex;
-    justify-content: center;
     position: sticky;
     top: 68px;
     z-index: 50;
+  }
+
+  .sub-header nav{
+    width: 100%;
   }
 
   .sub-header nav ul{
@@ -65,14 +67,18 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   .sub-header nav li{
+    flex: 1;
+    text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
     color: white;
-    padding: 15px 30px;
+    padding: 15px 0px;
     cursor: pointer;
+    text-align: center;
   }
 
   .sub-header nav li.active{
@@ -113,7 +119,6 @@ body {
     font-size: 2rem;
     font-style: italic;
     z-index: 1;
-    background: #37003c;
   }
   
   .lessons {
@@ -147,6 +152,6 @@ body {
     text-align: center;
     padding: 15px;
     background: #1e0021;
-    z-index: 50;
+    margin-top: 10px;
   }
   

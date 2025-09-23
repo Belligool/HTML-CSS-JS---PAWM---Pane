@@ -54,7 +54,7 @@ const subjects = {
     AI: {
         image: "Viper2.png",
         logo: "ViperLogo.png",
-        line: "Artificial Intelligence and Data Literacy",
+        line: "Artificial Intelligence & Data Literacy",
         lessons: [
           { title: "Types of Data and Sampling Methods", url: "https://www.youtube.com/watch?v=jk68oU9nu5E" },
           { title: "Exploratory Data Analysis (EDA)", url: "https://www.youtube.com/watch?v=Liv6eeb1VfE" },
