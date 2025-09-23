@@ -64,15 +64,16 @@ const subjects = {
 
 
 const navItems = document.querySelectorAll("nav li");
-const characterImg = document.querySelector(".character img");
+const characterBg = document.querySelector(".character-bg");
 const starterLine = document.querySelector(".starter-line");
 const lessonsContainer = document.querySelector(".lessons");
+
 
 function loadSubject(subject) {
   const data = subjects[subject];
   if (!data) return;
 
-  characterImg.src = data.image;
+  characterBg.style.backgroundImage = `url(${data.image})`;
   starterLine.textContent = data.line;
 
   lessonsContainer.innerHTML = "";

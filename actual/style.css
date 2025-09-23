@@ -40,25 +40,40 @@ body {
   }
   
   .intro {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    height: 500px;
+    text-align: center;
   }
   
-  .character img {
-    max-width: 500px;
-    border-radius: 15px;
+  .character-bg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 0;
   }
   
   .starter-line {
+    position: relative;
     font-size: 2rem;
     font-style: italic;
+    z-index: 1;
   }
   
   .lessons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    margin-top: -100px;
+    position: relative;
+    z-index: 2;
     gap: 15px;
     padding: 20px;
   }
