@@ -13,6 +13,7 @@ body {
     justify-content: space-between;
     background: #2a2a2a;
     padding: 10px 20px;
+    z-index: 10;
   }
   
   header h1 {
@@ -51,7 +52,7 @@ body {
   .character-bg {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
     width: 600px;
     height: 600px;
@@ -59,6 +60,7 @@ body {
     background-repeat: no-repeat;
     background-position: bottom;
     z-index: 0;
+    pointer-events: none;
   }
   
   .starter-line {
@@ -80,12 +82,14 @@ body {
   
   .lesson-card {
     background: green;
+    display: block;
     color: white;
     padding: 40px;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
   }
   
   .lesson-card:hover {

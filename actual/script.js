@@ -79,16 +79,14 @@ function loadSubject(subject) {
   lessonsContainer.innerHTML = "";
 
   data.lessons.forEach(lesson => {
-    const card = document.createElement("div");
-    card.classList.add("lesson-card");
 
     const link = document.createElement("a");
     link.href = lesson.url;
     link.target = "_blank";
+    link.classList.add("lesson-card");
     link.textContent = lesson.title;
 
-    card.appendChild(link);
-    lessonsContainer.appendChild(card);
+    lessonsContainer.appendChild(link);
   });
 
   navItems.forEach(li => li.classList.remove("active"));
