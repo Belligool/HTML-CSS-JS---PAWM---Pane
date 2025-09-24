@@ -31,7 +31,7 @@ const subjects = {
     },
     ENGLISH: { 
         image: "images/LunaSnow.png",
-        logo: "images/ViperLogo.png",
+        logo: "images/LSlogo.png",
         line: "English Language",
         subline: "XXXX",
         lessons: [
@@ -43,8 +43,8 @@ const subjects = {
         ]
       },
     SPORTS: {
-      image: "images/Viper2.png",
-      logo: "images/ViperLogo.png",
+      image: "images/Magik.png",
+      logo: "images/MLogo.png",
       line: "Sports",
       subline: "XXXX",
       lessons: [
