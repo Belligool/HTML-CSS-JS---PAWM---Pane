@@ -209,6 +209,61 @@ body {
   .lesson-card:hover .lesson-desc{
     display: block;
   }
+
+  .sponsors{
+    background: #1e0021;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+  }
+
+  .sponsor-track {
+    display: flex;
+    width: calc(200%);
+    animation: scroll-left 25s linear infinite;
+  }
+
+  .sponsor-track:hover{
+    animation-play-state: paused;
+  }
+
+  .sponsor {
+    flex: 0 0 auto;
+    width: 180px;
+    margin: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .sponsor img {
+    max-height: 60px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sponsor p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .sponsor:hover {
+    transform: scale(1.1);
+    color: white;
+  }
+
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
   
   footer {
     text-align: center;
