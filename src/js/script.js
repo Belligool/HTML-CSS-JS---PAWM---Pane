@@ -30,7 +30,7 @@ const subjects = {
       ]
     },
     ENGLISH: { 
-        image: "images/Viper2.png",
+        image: "images/LunaSnow.png",
         logo: "images/ViperLogo.png",
         line: "English Language",
         subline: "XXXX",

@@ -138,8 +138,8 @@ body {
     bottom: 0;
     left: 20%;
     transform: translateX(-50%);
-    width: 650px;
-    height: 650px;
+    width: 585px;
+    height: 585px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -215,8 +215,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 80px 8%;
-    gap: 20px;
+    gap: 40px;
+  }
+
+  .course-block {
+    background: #28002b;
+    margin: 50px auto;
+    border-radius: 12px;
+    padding: 60px 50px;
+    max-width: 1200px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
   }
 
   .course-info.flipped {
@@ -231,15 +239,15 @@ body {
   }
 
   .course-img img {
-    max-width: 100%;
-    max-height: 360px;
+    max-width: 460px;
+    max-height: 460px;
     object-fit: contain;
-    border-radius: 8px;
     display: block;
   }
 
   .course-text {
-    max-width: 600px;
+    flex: 1;
+    color: #efe6ff;
   }
 
   .course-text h3 {
