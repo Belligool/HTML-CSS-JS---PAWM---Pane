@@ -1,7 +1,7 @@
 const subjects = {
     MATHEMATICS: { 
-        image: "Viper2.png",
-        logo: "ViperLogo.png",
+        image: "images/Viper2.png",
+        logo: "images/ViperLogo.png",
       line: "Mathematics",
       lessons: [
         { title: "Functions", url: "https://www.youtube.com/watch?v=5D5b3c1DjZw" },
@@ -14,9 +14,9 @@ const subjects = {
       ]
     },
     CHEMISTRY: {
-      image: "Viper2.png",
-      logo: "ViperLogo.png",
-      line: "General Chemistry",
+      image: "images/Viper2.png",
+      logo: "images/ViperLogo.png",
+      line: "General Chemistry with Viper",
       lessons: [
         { title: "Elements, Molecules and The Periodic Table", url: "https://www.youtube.com/watch?v=TXEXWN8J8BE" },
         { title: "The Concept of Moles and Stoichiometry", url: "https://www.youtube.com/watch?v=UPhIEtYKjd8" },
@@ -28,8 +28,8 @@ const subjects = {
       ]
     },
     ENGLISH: { 
-        image: "Viper2.png",
-        logo: "ViperLogo.png",
+        image: "images/Viper2.png",
+        logo: "images/ViperLogo.png",
         line: "English Language",
         lessons: [
           { title: "Past Tense, Present Tense, Future Tense", url: "https://www.youtube.com/watch?v=ld7RqdoRAM0" },
@@ -40,8 +40,8 @@ const subjects = {
         ]
       },
     SPORTS: {
-      image: "Viper2.png",
-      logo: "ViperLogo.png",
+      image: "images/Viper2.png",
+      logo: "images/ViperLogo.png",
       line: "Sports",
       lessons: [
         { title: "Warm-up and Stretching Basics", url: "https://www.youtube.com/watch?v=2L2lnxIcNmo" },
@@ -52,8 +52,8 @@ const subjects = {
       ]
     },
     AI: {
-        image: "Viper2.png",
-        logo: "ViperLogo.png",
+        image: "images/Viper2.png",
+        logo: "images/ViperLogo.png",
         line: "Artificial Intelligence & Data Literacy",
         lessons: [
           { title: "Types of Data and Sampling Methods", url: "https://www.youtube.com/watch?v=jk68oU9nu5E" },
@@ -98,8 +98,12 @@ function loadSubject(subject) {
     lessonsContainer.appendChild(link);
   });
 
-  navItems.forEach(li => li.classList.remove("active"));
-  document.querySelector(`nav li:nth-child(${getTabIndex(subject)})`).classList.add("active");
+  navItems.forEach(li => {
+    li.classList.remove("active");
+    if (li.textContent.trim().toUpperCase() === subject){
+      li.classList.add("active")
+    }
+  });
 }
 
 function getTabIndex(subject) {
