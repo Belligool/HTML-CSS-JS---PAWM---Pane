@@ -20,6 +20,7 @@ body {
     margin-bottom: 20px;
   }
 
+
   .hero p{
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -241,11 +242,41 @@ body {
     max-width: 600px;
   }
 
+  .course-text h3 {
+    font-size: 2rem;
+    color: rgb(228, 228, 7);
+    font-family: "Lucida Console";
+  }
+
   .course-text h2 {
+    font-size: 2rem;
+    color: rgb(222, 72, 8);
+    font-family: "Lucida Console";
+  }
+
+  .course-text h1 {
     font-size: 2rem;
     font-style: bold;
     margin-bottom: 15px;
     color: cyan;
+  }
+
+  .course-text h4 {
+    font-size: 2rem;
+    color: rgb(26, 209, 26);
+    font-family: "Lucida Console";
+  }
+
+  .course-text h5 {
+    font-size: 2rem;
+    color: rgb(13, 157, 201);
+    font-family: "Lucida Console";
+  }
+
+  .course-text h6 {
+    font-size: 2rem;
+    color: rgb(235, 213, 10);
+    font-family: "Lucida Console";
   }
 
   .course-text p {
