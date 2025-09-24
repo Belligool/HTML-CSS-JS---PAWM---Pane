@@ -46,8 +46,8 @@ const subjects = {
       lessons: [
         { title: "Warm-up and Stretching Basics", url: "https://www.youtube.com/watch?v=2L2lnxIcNmo" },
         { title: "Cardio Training 101", url: "https://www.youtube.com/watch?v=ml6cT4AZdqI" },
-        { title: "Strength Training for Beginners", url: "https://www.youtube.com/watch?v=k1a2tbhbPXY" },
-        { title: "Importance of Rest and Recovery", url: "https://www.youtube.com/watch?v=9z5sPZPjMsk" },
+        { title: "Strength Training for Beginners", url: "https://www.youtube.com/watch?v=xO3NJ7A7w5o" },
+        { title: "Study Case: Manchester United", url: "https://youtu.be/Dki5tjN0rDE?si=slRvri_8aGfygXBs" },
         { title: "Football Tactics", url: "https://www.youtube.com/watch?v=4wAG5ZUJ4eI"}
       ]
     },
