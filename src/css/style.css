@@ -5,23 +5,75 @@ body {
     color: white;
   }
 
-  .homepage{
+  .hero-static {
+    background: #37003c;       
+    height: 80vh;              
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
     text-align: center;
-    background: #37003c;
+    margin-bottom: 80px;
   }
 
-  .hero h1{
+  .hero-static .hero-overlay {
+    position: relative;
+    width: 100%;
+    color: white;
+  }
+
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+    margin-bottom: 80px; 
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    z-index: -1;  
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 1;
+  }
+
+  .hero-overlay h1 {
+    font-size: 4rem;
+    color: cyan;
+    margin-bottom: 20px;
+  }
+  
+  .hero-overlay p {
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-static h1{
     font-size: 3rem;
     color: cyan;
     margin-bottom: 20px;
   }
 
 
-  .hero p{
+  .hero-static p{
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
