@@ -1,9 +1,9 @@
 const subjects = {
     MATHEMATICS: { 
-        image: "images/Viper2.png",
-        logo: "images/ViperLogo.png",
+        image: "images/Killjoy.png",
+        logo: "images/KJLogo.png",
       line: "Mathematics",
-      subline: "XXXX",
+      subline: "Featuring Killjoy",
       lessons: [
         { title: "Functions", url: "https://www.youtube.com/watch?v=5D5b3c1DjZw", desc: "bla bla bla" },
         { title: "Limits", url: "https://www.youtube.com/watch?v=YNstP0ESndU", desc: "bla bla bla"},
@@ -15,10 +15,10 @@ const subjects = {
       ]
     },
     CHEMISTRY: {
-      image: "images/Viper2.png",
+      image: "images/Viper.png",
       logo: "images/ViperLogo.png",
-      line: "General Chemistry with Viper",
-      subline: "Explore Chemistry",
+      line: "General Chemistry",
+      subline: "Featuring Viper",
       lessons: [
         { title: "Elements, Molecules and The Periodic Table", url: "https://www.youtube.com/watch?v=TXEXWN8J8BE", desc: "bla bla bla" },
         { title: "The Concept of Moles and Stoichiometry", url: "https://www.youtube.com/watch?v=UPhIEtYKjd8", desc: "bla bla bla" },
@@ -33,7 +33,7 @@ const subjects = {
         image: "images/LunaSnow.png",
         logo: "images/LSlogo.png",
         line: "English Language",
-        subline: "XXXX",
+        subline: "Featuring Luna Snow",
         lessons: [
           { title: "Past Tense, Present Tense, Future Tense", url: "https://www.youtube.com/watch?v=ld7RqdoRAM0", desc: "bla bla bla" },
           { title: "Grammar", url: "https://www.youtube.com/watch?v=QXVzmzhxWWc", desc: "bla bla bla" },
@@ -46,7 +46,7 @@ const subjects = {
       image: "images/Magik.png",
       logo: "images/MLogo.png",
       line: "Sports",
-      subline: "XXXX",
+      subline: "Featuring Magik",
       lessons: [
         { title: "Warm-up and Stretching Basics", url: "https://www.youtube.com/watch?v=2L2lnxIcNmo", desc: "bla bla bla" },
         { title: "Cardio Training 101", url: "https://www.youtube.com/watch?v=ml6cT4AZdqI", desc: "bla bla bla" },
@@ -56,10 +56,10 @@ const subjects = {
       ]
     },
     AI: {
-        image: "images/Viper2.png",
-        logo: "images/ViperLogo.png",
+        image: "images/Ultron.png",
+        logo: "images/ULogo.png",
         line: "Artificial Intelligence & Data Literacy",
-        subline: "XXXX",
+        subline: "Featuring Ultron",
         lessons: [
           { title: "Types of Data and Sampling Methods", url: "https://www.youtube.com/watch?v=jk68oU9nu5E", desc: "bla bla bla" },
           { title: "Exploratory Data Analysis (EDA)", url: "https://www.youtube.com/watch?v=Liv6eeb1VfE", desc: "bla bla bla" },
