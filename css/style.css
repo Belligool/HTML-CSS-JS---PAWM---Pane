@@ -441,6 +441,89 @@ body {
     text-align: center;
   }
 
+  .feedback-entry {
+    display: block;
+    margin: auto;
+    width: 50%;
+    margin-top: 200px;
+    margin-bottom: 100px;
+  }
+
+  .feedback-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+  }
+
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #1e0021;  
+    color: white;         
+    font-size: 1rem;
+  }
+
+  .feedback-form input[type="radio"] {
+    display: none;
+  }
+
+.feedback-form .radio-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feedback-form .radio-group label {
+  background: #1e0021;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid cyan;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.feedback-form .radio-group label:hover {
+  background: cyan;
+  color: black;
+}
+
+.feedback-form input[type="radio"]:checked + label {
+  background: cyan;
+  color: black;
+  transform: scale(1.05);
+}
+
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: #aaa;
+}
+
+.feedback-form button {
+  background: cyan;
+  color: black;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.feedback-form button:hover {
+  background: #00ffaa;
+  transform: scale(1.05);
+}
+
   @keyframes scroll-left {
     from {
       transform: translateX(0);

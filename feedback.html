@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudeeTB</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/FaramundoFC.png" alt="logo" width="48" height="48">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">&lt; Back to HOME</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="feedback-form" style="max-width: 700px; margin: 50px auto; padding: 30px; background: #28002b; border-radius: 12px; text-align: center;">
+        <h1 style="color: cyan; margin-bottom: 20px;">We Value Your Feedback!</h1>
+        <p style="color: #ccc; margin-bottom: 30px;">Help us improve StudeeTB by answering a few quick questions.</p>
+
+        <form>
+            <label for="experience">1. How would you rate your overall experience on StudeeTB?</label><br>
+            <select id="experience" name="experience" required>
+                <option value="">Select</option>
+                <option>Excellent</option>
+                <option>Good</option>
+                <option>Average</option>
+                <option>Poor</option>
+            </select><br><br>
+
+            <label for="favourite">2. Which course did you enjoy the most?</label><br>
+            <input type="text" id="favorite" name="favorite" placeholder="e.g. Mathematics, AI, English"><br><br>
+
+            <label for="improvement">3. What would you like to see improved?</label><br>
+            <textarea id="improvement" name="improvement" rows="4" placeholder="Share your thoughts..."></textarea><br><br>
+            <label for="features">4. Which new features would you like to see in the future?</label><br>
+            <textarea id="features" name="features" rows="4" placeholder="Quizzes, more lessons, animations, etc."></textarea><br><br>
+
+            <label for="recommend">5. Would you recommend StudeeTB to other students?</label><br>
+            <input type="radio" id="rec-yes" name="recommend" value="Yes" required>
+            <label for="rec-yes">Yes</label>
+            <input type="radio" id="rec-no" name="recommend" value="No">
+            <label for="rec-no">No</label><br><br>
+
+            <button type="submit" class="cta-btn">Submit Feedback</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2025 Fadhil Rifqi Rabbani Pane - 18223109</p>
+    </footer>
+</body>
+</html>
