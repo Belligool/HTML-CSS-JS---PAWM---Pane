@@ -400,6 +400,47 @@ body {
     color: white;
   }
 
+  .quiz-section {
+    text-align: center;
+    margin: 60px auto;
+    padding: 50px 20px;
+    background: #28002b;
+    border-radius: 12px;
+    max-width: 900px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  .quiz-section h2 {
+    font-size: 2rem;
+    color: cyan;
+    margin-bottom: 25px;
+  }
+
+  .quiz-btn {
+    display: inline-block;
+    background: cyan;
+    color: black;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: transform 0.2s, background 0.3s;
+    text-decoration: none;
+  }
+
+  .quiz-btn:hover {
+    background: #00ffaa;
+    transform: scale(1.1);
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background: #37003c;
+    text-align: center;
+  }
+
   @keyframes scroll-left {
     from {
       transform: translateX(0);
