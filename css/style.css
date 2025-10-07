@@ -88,18 +88,55 @@ body {
   }
 
   .cta-btn{
-    display: inline-black;
-    background: cyan;
-    color: black;
+    position: relative;
+    display: inline-block;
     padding: 15px 30px;
-    border-radius: 2px;
+    border-radius: 6px;
+    background: cyan;
+    font-size: 1.2rem;
     font-weight: bold;
-    transition: background 0.3s;
+    color: black;               
+    text-decoration: none;
+    overflow: hidden;           
+    transition: transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .cta-btn:hover{
-    background: #00ffaa;
-    transform: scale(1.1);  }
+  .cta-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;                   
+    background: #00ffaa;       
+    transform-origin: left center;
+    transform: scaleX(0);       
+    transition: transform 450ms cubic-bezier(.2,.8,.2,1);
+    z-index: 0;               
+    will-change: transform;
+  }
+
+  .cta-btn span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: color 250ms ease;
+  }
+
+  .cta-btn:hover::before, .cta-btn:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .cta-btn:hover span, .cta-btn:focus-visible span {
+    color: black;
+  }
+
+  .cta-btn:active {
+    transform: scale(0.98);
+  }
+
+  .cta-btn:focus-visible {
+    outline: 3px solid rgba(0,255,200,0.12);
+    outline-offset: 3px;
+  }
   
   header {
     display: flex;
@@ -416,21 +453,55 @@ body {
     margin-bottom: 25px;
   }
 
-  .quiz-btn {
+  .quiz-btn{
+    position: relative;
     display: inline-block;
+    padding: 15px 30px;
+    border-radius: 6px;
     background: cyan;
-    color: black;
-    padding: 15px 35px;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 6px;
-    transition: transform 0.2s, background 0.3s;
+    color: black;               
     text-decoration: none;
+    overflow: hidden;           
+    transition: transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .quiz-btn:hover {
-    background: #00ffaa;
-    transform: scale(1.1);
+  .quiz-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;                   
+    background: #00ffaa;       
+    transform-origin: left center;
+    transform: scaleX(0);       
+    transition: transform 450ms cubic-bezier(.2,.8,.2,1);
+    z-index: 0;               
+    will-change: transform;
+  }
+
+  .quiz-btn span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: color 250ms ease;
+  }
+
+  .quiz-btn:hover::before, .quiz-btn:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .quiz-btn:hover span, .quiz-btn:focus-visible span {
+    color: black;
+  }
+
+  .quiz-btn:active {
+    transform: scale(0.98);
+  }
+
+  .quiz-btn:focus-visible {
+    outline: 3px solid rgba(0,255,200,0.12);
+    outline-offset: 3px;
   }
 
   .quiz-container {
@@ -531,6 +602,27 @@ body {
     to {
       transform: translateX(-50%);
     }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-play-state: paused
+  }
+
+  .fade-in.visible{
+      animation-play-state: running;
   }
   
   footer {
