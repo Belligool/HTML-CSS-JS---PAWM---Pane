@@ -9,6 +9,17 @@
 </head>
 <body>
 
+  <script>
+    (function() {
+      const loggedInEmail = localStorage.getItem('st_logged_in');
+      if (!loggedInEmail) {
+        const redirectTo = encodeURIComponent(window.location.pathname.split('/').pop());
+        window.location.href = `login.html?redirect=${redirectTo}`;
+      }
+    })();
+  </script>
+
+
   <!-- header disini yh -->
   <header>
     <div class="logo">
@@ -18,6 +29,7 @@
     </div>
     <nav>
         <ul>
+            <li><button id="logoutBtn">&lt; Logout &gt;</button></li>
             <li><a href="index.html">&lt; Back to HOME</a></li>
         </ul>
     </nav>
@@ -63,5 +75,18 @@
   </footer>
 
   <script src="js/script.js"></script>
+
+  <script>
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('st_logged_in');
+        alert('You have been logged out.');
+        window.location.href = 'index.html';
+      });
+    }
+  </script>
+
+  
 </body>
 </html>

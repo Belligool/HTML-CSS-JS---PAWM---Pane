@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login / Register - StudeeTB</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .auth-card {
+          max-width: 420px;
+          margin: 80px auto;
+          padding: 30px;
+          border-radius: 12px;
+          background: #28002b;
+          text-align: center;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+        .auth-card input {
+          width: 100%;
+          padding: 10px;
+          margin: 8px 0;
+          border-radius: 6px;
+          border: 1px solid #555;
+          background: #1e0021;
+          color: #fff;
+        }
+        .mode-toggle {
+          margin-top: 12px;
+          color: #ccc;
+          font-size: 0.95rem;
+          cursor: pointer;
+        }
+        .error { color: #ff7b7b; margin-top: 8px; }
+  </style>
+</head>
+<body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/FaramundoFC.png" alt="logo" width="48" height="48">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">&lt; Back to HOME</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="auth-card">
+        <h1 style="color:cyan;margin-bottom:6px;">Login / Register</h1>
+        <p style="color:#ccc;margin-bottom:18px;">Please login or create an account to continue.</p>
+
+        <form id="authForm" autocomplete="off">
+          <input id="email" type="email" placeholder="Email" required />
+          <input id="password" type="password" placeholder="Password" required />
+          <input id="displayName" type="text" placeholder="Display name (optional for register)" style="display:none;" />
+
+          <button type="submit" class="cta-btn" style="margin-top:12px;"><span>Continue</span></button>
+
+          <div class="mode-toggle" id="toggleMode" title="Switch mode">Don't have an account? Register →</div>
+
+          <div class="error" id="errorMsg" style="display:none;"></div>
+        </form>
+      </div>
+    </main>
+
+  <footer>
+    <p>© 2025 Fadhil Rifqi Rabbani Pane - 18223109</p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
