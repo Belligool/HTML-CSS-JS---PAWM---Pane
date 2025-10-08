@@ -648,3 +648,20 @@ body {
     color: black;
     transform: scale(1.05);
   }
+
+  .back-btn {
+    background: none;
+    border: 1px solid cyan;
+    color: cyan;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+  }
+
+  .back-btn:hover {
+    background: cyan;
+    color: black;
+    transform: scale(1.05);
+  }
