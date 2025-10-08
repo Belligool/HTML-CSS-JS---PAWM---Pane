@@ -633,23 +633,47 @@ body {
   }
   
   .nav-btn {
+    position: relative;
     display: inline-block;
-    padding: 8px 18px;
-    margin: 0 6px;
+    padding: 10px 22px;
+    margin: 0 8px;
     border: 2px solid cyan;
-    color: cyan;
     border-radius: 8px;
     font-weight: bold;
-    background: linear-gradient(90deg, transparent 0%, transparent 100%);
-    background-size: 200% 100%;
-    transition: background 0.5s ease, color 0.5s ease;
+    color: cyan;
     text-decoration: none;
+    overflow: hidden;
+    background: transparent;
     cursor: pointer;
+    transition: transform 0.15s ease;
   }
   
-  .nav-btn:hover {
-    background: linear-gradient(90deg, cyan 0%, cyan 100%);
+  .nav-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: cyan;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 400ms cubic-bezier(.2,.8,.2,1);
+    z-index: 0;
+  }
+  
+  .nav-btn span {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-btn:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .nav-btn:hover span {
     color: #28002b;
+  }
+  
+  .nav-btn:active {
+    transform: scale(0.96);
   }
   
   nav ul {
