@@ -8,7 +8,7 @@
     const nameEl = $('#displayName');
     const errEl = $('#errorMsg');
 
-    const API_BASE = "https://studee-tb-backend.vercel.app/"; 
+    const API_BASE = "https://studee-tb-backend.vercel.app"; 
 
     let mode = 'login';
 
@@ -49,6 +49,7 @@
     updateModeUI();
 
     async function sendRequest(path, data) {
+      const url = `${API_BASE}${path.startsWith("/") ? path : `/${path}`}`;
       const res = await fetch(`${API_BASE}${path}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
