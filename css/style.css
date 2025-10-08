@@ -208,7 +208,6 @@ body {
   }
 
   .sub-header nav ul{
-    list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
@@ -219,16 +218,26 @@ body {
     flex: 1;
     text-align: center;
     font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-    padding: 15px 0px;
+    font-size: 1.1rem;
+    color: black;
+    padding: 12px 0px;
     cursor: pointer;
-    text-align: center;
+    transition: background 0.3s, transform 0.1s ease;
+    border-right: 1px solid #1e0021;
   }
 
   .sub-header nav li.active{
     background: cyan;
     color: black;
+  }
+
+  .sub-header nav li:last-child {
+    border-right: none;
+  }
+
+  .sub-header nav li:hover {
+    background: #00ffaa;
+    transform: scale(1.03);
   }
 
   .character-bg {
@@ -635,10 +644,10 @@ body {
   .nav-btn{
     position: relative;
     display: inline-block;
-    padding: 15px 30px;
+    padding: 8px 18px;
     border-radius: 6px;
     background: cyan;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: black;               
     text-decoration: none;
