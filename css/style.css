@@ -640,16 +640,15 @@ body {
     color: cyan;
     border-radius: 8px;
     font-weight: bold;
-    background: linear-gradient(90deg, cyan 0%, cyan 0%, transparent 0%);
+    background: linear-gradient(90deg, transparent 0%, transparent 100%);
     background-size: 200% 100%;
-    background-position: right bottom;
-    transition: background-position 0.4s ease, color 0.4s ease;
+    transition: background 0.5s ease, color 0.5s ease;
     text-decoration: none;
     cursor: pointer;
   }
   
   .nav-btn:hover {
-    background-position: left bottom;
+    background: linear-gradient(90deg, cyan 0%, cyan 100%);
     color: #28002b;
   }
   
