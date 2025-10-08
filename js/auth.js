@@ -50,7 +50,7 @@
 
     async function sendRequest(path, data) {
       const url = `${API_BASE}${path.startsWith("/") ? path : `/${path}`}`;
-      const res = await fetch(`${API_BASE}${path}`, {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
