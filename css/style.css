@@ -219,7 +219,7 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 1.1rem;
-    color: black;
+    color: white;
     padding: 12px 0px;
     cursor: pointer;
     transition: background 0.3s, transform 0.1s ease;
