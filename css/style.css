@@ -632,48 +632,55 @@ body {
     margin-top: 10px;
   }
   
-  .nav-btn {
+  .nav-btn{
     position: relative;
     display: inline-block;
-    padding: 10px 22px;
-    margin: 0 8px;
-    border: 2px solid cyan;
-    border-radius: 8px;
+    padding: 15px 30px;
+    border-radius: 6px;
+    background: cyan;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: cyan;
+    color: black;               
     text-decoration: none;
-    overflow: hidden;
-    background: transparent;
-    cursor: pointer;
-    transition: transform 0.15s ease;
+    overflow: hidden;           
+    transition: transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
-  
+
   .nav-btn::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: cyan;
+    inset: 0;                   
+    background: #00ffaa;       
     transform-origin: left center;
-    transform: scaleX(0);
-    transition: transform 400ms cubic-bezier(.2,.8,.2,1);
-    z-index: 0;
+    transform: scaleX(0);       
+    transition: transform 450ms cubic-bezier(.2,.8,.2,1);
+    z-index: 0;               
+    will-change: transform;
   }
-  
+
   .nav-btn span {
     position: relative;
     z-index: 1;
+    display: inline-block;
+    transition: color 250ms ease;
   }
-  
-  .nav-btn:hover::before {
+
+  .nav-btn:hover::before, .nav-btn:focus-visible::before {
     transform: scaleX(1);
   }
-  
-  .nav-btn:hover span {
-    color: #28002b;
+
+  .nav-btn:hover span, .nav-btn:focus-visible span {
+    color: black;
   }
-  
+
   .nav-btn:active {
-    transform: scale(0.96);
+    transform: scale(0.98);
+  }
+
+  .nav-btn:focus-visible {
+    outline: 3px solid rgba(0,255,200,0.12);
+    outline-offset: 3px;
   }
   
   nav ul {
