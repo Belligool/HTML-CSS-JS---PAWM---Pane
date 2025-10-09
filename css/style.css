@@ -287,35 +287,63 @@ body {
   }
   
   .lesson-card {
-    background: #28002b;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 35px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    text-align: center;
     text-decoration: none;
-    position: relative;
-    color: white;
+    overflow: hidden;
+    transition: transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
   
+  .lesson-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #00ffaa;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 450ms cubic-bezier(.2,.8,.2,1);
+    z-index: 0;
+    will-change: transform;
+  }
+  
+  .lesson-card span {
+    position: relative;
+    z-index: 1;
+    transition: color 250ms ease;
+  }
+  
+  .lesson-card:hover::before,
+  .lesson-card:focus-visible::before {
+    transform: scaleX(1);
+  }
+  
+  .lesson-card:hover span,
+  .lesson-card:focus-visible span {
+    color: black;
+  }
+  
+  .lesson-card:active {
+    transform: scale(0.98);
+  }
+  
+  .lesson-card:focus-visible {
+    outline: 3px solid rgba(0,255,200,0.12);
+    outline-offset: 3px;
+  }
+  
+  /* Optional small hover scale effect (subtle) */
   .lesson-card:hover {
-    transform: scale(1.05);
-    background: #b800c5;
-  }
-
-  .lesson-desc {
-    display: none;
-    font-size: 0.9rem;
-    margin-top: 10px;
-    color: #ddd;
-    text-align: center;
-  }
-
-  .lesson-card:hover .lesson-desc{
-    display: block;
+    transform: scale(1.02);
   }
 
   .course-info {
