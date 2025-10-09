@@ -290,10 +290,9 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
     justify-content: center;
     align-items: center;
-    padding: 22px 18px;
+    padding: 35px;
     border-radius: 10px;
     background: cyan;
     color: black;
