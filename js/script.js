@@ -95,18 +95,18 @@ function loadSubject(subject) {
   lessonsContainer.innerHTML = "";
 
   data.lessons.forEach(lesson => {
-
-    const link = document.createElement("a");
-    link.href = lesson.url;
-    link.target = "_blank";
-    link.classList.add("lesson-card");
-    link.textContent = lesson.title;
-    link.innerHTML = `
+    const card = document.createElement("div");
+    card.classList.add("lesson-card");
+    card.innerHTML = `
       <span class="lesson-title">${lesson.title}</span>
       <span class="lesson-desc">${lesson.desc || ""}</span>
-    `;
+      `;
 
-    lessonsContainer.appendChild(link);
+    card.addEventListener("click", () => {
+      openCourseModal(lesson);
+    });
+
+    lessonsContainer.appendChild(card);
   });
 
   navItems.forEach(li => {
@@ -135,3 +135,29 @@ navItems.forEach(item => {
 });
 
 loadSubject("MATHEMATICS");
+
+const modal = document.getElementById("courseModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalPdf = document.getElementById("modalPdf");
+const modalVideo = document.getElementById("modalVideo");
+const closeBtn = document.querySelector(".close-btn");
+
+function openCourseModal(lesson) {
+  modalTitle.textContent = lesson.title;
+  modalDescription.textContent = lesson.desc || "No description available.";
+
+  const safeName = lesson.title.replace(/\s+/g, "_").toLowerCase();
+  modalPdf.href = `materials/${safeName}.pdf`;
+
+  modalVideo.href = lesson.url;
+  modal.style.display = "flex";
+}
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none";
+});
