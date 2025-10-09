@@ -60,6 +60,21 @@
       return json;
     }
 
+    function validatePassword(password) {
+      const minLength = /.{8,}/;
+      const upper = /[A-Z]/;
+      const lower = /[a-z]/;
+      const number = /\d/;
+      const symbol = /[^A-Za-z0-9]/;
+  
+      if (!minLength.test(password)) return "Password must be at least 8 characters long.";
+      if (!upper.test(password)) return "Password must include at least one uppercase letter.";
+      if (!lower.test(password)) return "Password must include at least one lowercase letter.";
+      if (!number.test(password)) return "Password must include at least one number.";
+      if (!symbol.test(password)) return "Password must include at least one symbol.";
+      return null;
+    }
+
     form.addEventListener('submit', async (ev) => {
       ev.preventDefault();
       errEl.style.display = 'none';
@@ -71,6 +86,15 @@
         errEl.textContent = 'Please enter both email and password.';
         errEl.style.display = 'block';
         return;
+      }
+
+      if (mode === 'register') {
+        const pwdError = validatePassword(password);
+        if (pwdError) {
+          errEl.textContent = pwdError;
+          errEl.style.display = 'block';
+          return;
+        }
       }
 
       try {
