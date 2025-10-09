@@ -1,7 +1,7 @@
 const subjects = {
     MATHEMATICS: { 
-        image: "images/Killjoy.png",
-        logo: "images/KJLogo.png",
+      image: "images/Killjoy.png",
+      logo: "images/KJLogo.png",
       line: "Mathematics",
       subline: "Featuring Killjoy",
       lessons: [
@@ -97,14 +97,9 @@ function loadSubject(subject) {
   data.lessons.forEach(lesson => {
     const card = document.createElement("div");
     card.classList.add("lesson-card");
-    card.innerHTML = `
-      <span class="lesson-title">${lesson.title}</span>
-      <span class="lesson-desc">${lesson.desc || ""}</span>
-      `;
+    card.innerHTML = `<span class="lesson-title">${lesson.title}</span>`;
 
-    card.addEventListener("click", () => {
-      openCourseModal(lesson);
-    });
+    card.addEventListener("click", () => openCourseModal(lesson));
 
     lessonsContainer.appendChild(card);
   });
@@ -149,8 +144,8 @@ function openCourseModal(lesson) {
 
   const safeName = lesson.title.replace(/\s+/g, "_").toLowerCase();
   modalPdf.href = `materials/${safeName}.pdf`;
-
   modalVideo.href = lesson.url;
+
   modal.style.display = "flex";
 }
 
