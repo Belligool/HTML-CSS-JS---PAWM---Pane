@@ -112,11 +112,19 @@
         btn.onclick = async () => {
           const idx = Number(btn.dataset.idx);
           answers[currentIndex] = idx;
+        
+          quizInner.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+        
           saveProgress(subject, quizId, { currentIndex, answers, completed: false });
+        
           if (currentIndex === 0)
             await postProgress({ email: userEmail, subject, quizId, currentIndex });
-          currentIndex++;
-          render();
+        
+          setTimeout(() => {
+            currentIndex++;
+            render();
+          }, 300);
         };
       });
 

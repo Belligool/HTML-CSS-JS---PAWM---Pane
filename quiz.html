@@ -58,21 +58,24 @@
     .quiz-btn {
       display: inline-block;
       margin: 12px;
-      padding: 10px 22px;
-      background: cyan;
+      padding: 12px 28px;
+      background: #00ffff;
       color: black;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
-      text-decoration: none;
+      font-size: 1.1rem;
+      border: 2px solid cyan;
+      text-shadow: none;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
       cursor: pointer;
-      border: none;
-      transition: background-color 0.25s ease, transform 0.15s ease;
-      will-change: transform;
+      transition: all 0.25s ease;
+      position: relative;
+      z-index: 2;
     }
-    
     .quiz-btn:hover {
       background: #00ffaa;
       transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(0, 255, 255, 0.8);
     }
 
     .option-btn {
@@ -80,7 +83,7 @@
       width: 100%;
       margin: 10px 0;
       padding: 14px 18px;
-      background: #4b0060;
+      background: #30003a;
       color: white;
       border: 2px solid cyan;
       border-radius: 10px;
@@ -89,16 +92,42 @@
       text-align: left;
       transition: all 0.25s ease;
     }
-    
     .option-btn:hover {
       background: cyan;
       color: black;
       transform: translateY(-2px);
-      box-shadow: 0 0 14px rgba(0, 255, 255, 0.6);
+      box-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
     }
+
+    .option-btn.selected {
+      background: #00ffaa;
+      color: black;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+
     .option-btn:active {
       transform: translateY(0);
       box-shadow: none;
+    }
+
+    .quiz-action-btn {
+      background: #30003a;
+      color: white;
+      border: 2px solid cyan;
+      border-radius: 8px;
+      padding: 8px 18px;
+      margin: 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .quiz-action-btn:hover {
+      background: cyan;
+      color: black;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+    }
+    .quiz-action-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
     }
     
     @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
