@@ -341,7 +341,6 @@ body {
     outline-offset: 3px;
   }
   
-  /* Optional small hover scale effect (subtle) */
   .lesson-card:hover {
     transform: scale(1.02);
   }
@@ -797,3 +796,29 @@ body {
     color: cyan;
     border: 2px solid cyan;
   }
+
+  .option-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 18px;
+    background: #222;
+    color: white;
+    border: 2px solid cyan;
+    border-radius: 8px;
+    width: 80%;
+    transition: all 0.25s ease;
+  }
+  
+  .option-btn:hover {
+    background: cyan;
+    color: black;
+    transform: scale(1.05);
+  }
+  
+  .option-btn.selected {
+    background: limegreen;
+    color: black;
+    box-shadow: 0 0 20px limegreen;
+    transform: scale(1.08);
+  }
+  

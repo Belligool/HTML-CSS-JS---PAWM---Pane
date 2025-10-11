@@ -132,13 +132,12 @@
 
     function render() {
       if (currentIndex >= questions.length) {
-
         const rawScore = answers.filter((a, i) => a === questions[i].answerIndex).length;
         const percentScore = Math.round((rawScore / questions.length) * 100);
-
+    
         saveProgress(subject, quizId, { currentIndex, answers, completed: true, score: percentScore });
         postComplete({ email: userEmail, subject, quizId, score: percentScore });
-
+    
         quizInner.innerHTML = `
           <h2 style="color:cyan;">Quiz Complete!</h2>
           <p>You scored ${percentScore}%</p>
@@ -149,23 +148,38 @@
       }
 
       const q = questions[currentIndex];
+      const savedAnswer = answers[currentIndex];
+
       quizInner.innerHTML = `
         <div class="quiz-question">Q${currentIndex + 1}. ${q.q}</div>
-        ${q.options.map((opt, i) => `<button class="option-btn" data-idx="${i}">${opt}</button>`).join("")}
-        <div class="quiz-footer">
-          <button id="prevBtn" class="quiz-action-btn" ${currentIndex === 0 ? "disabled" : ""}>Prev</button>
-          <div class="small-muted">${currentIndex + 1} / ${questions.length}</div>
-        </div>
+        <div class="options">
+          ${q.options.map((opt, i) => `
+          <button class="option-btn ${savedAnswer === i ? "selected" : ""}" data-idx="${i}">
+            ${opt}
+          </button>
+        `).join("")}
+      <div>
+      <div class="quiz-footer">
+        <button id="prevBtn" class="quiz-action-btn" ${currentIndex === 0 ? "disabled" : ""}>Prev</button>
+        <div class="small-muted">${currentIndex + 1} / ${questions.length}</div>
+      </div>
       `;
 
       document.querySelectorAll(".option-btn").forEach((btn) => {
         btn.onclick = async () => {
           const idx = Number(btn.dataset.idx);
           answers[currentIndex] = idx;
+
+          document.querySelectorAll(".option-btn").forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+
           saveProgress(subject, quizId, { currentIndex, answers, completed: false });
           await postProgress({ email: userEmail, subject, quizId, currentIndex, answers, completed: false });
-          currentIndex++;
-          render();
+
+          setTimeout(() => {
+            currentIndex++;
+            render();
+          }, 200);
         };
       });
 
