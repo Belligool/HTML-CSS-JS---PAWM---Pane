@@ -7,102 +7,104 @@
   <link rel="icon" type="image/png" href="images/FaramundoFC.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .quiz-select {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 80px 20px;
-      background: #37003c;
-      min-height: 80vh;
-    }
+.quiz-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 20px;
+  background: #37003c;
+  min-height: 80vh;
+}
 
-    .quiz-card {
-      position: relative;
-      width: 220px;
-      height: 300px;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.35s ease, box-shadow 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
+.quiz-card {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.3s;
+}
 
-    .quiz-card:hover {
-      transform: scale(1.15);
-      z-index: 10;
-      box-shadow: 0 0 25px cyan;
-    }
+.quiz-card:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+}
 
-    .quiz-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.4s ease;
-    }
+.quiz-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  border-radius: 12px;
+}
 
-    .quiz-card img.hovered {
-      opacity: 0;
-    }
+.quiz-card img.hovered {
+  opacity: 0;
+}
 
-    .quiz-card:hover img.hovered {
-      opacity: 1;
-    }
+.quiz-card:hover img.hovered {
+  opacity: 1;
+  transform: scale(1.05);
+}
 
-    .quiz-card:hover img.static {
-      opacity: 0;
-    }
+.quiz-card:hover img.static {
+  opacity: 0;
+}
 
-    .quiz-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      transition: background 0.3s;
-      z-index: 1;
-    }
+.quiz-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  transition: background 0.3s;
+  z-index: 1;
+}
 
-    .quiz-card:hover .quiz-overlay {
-      background: rgba(0, 0, 0, 0.7);
-    }
+.quiz-card:hover .quiz-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
 
-    .quiz-card h2 {
-      position: relative;
-      z-index: 2;
-      color: white;
-      font-size: 1.6rem;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+.quiz-card h2 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 0 0 6px black;
+}
 
-    .enter-btn {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) scale(0.9);
-      background: cyan;
-      color: black;
-      font-weight: bold;
-      padding: 10px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 3;
-    }
+.enter-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: cyan;
+  color: black;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
 
-    .quiz-card:hover .enter-btn {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
-    }
+.quiz-card:hover .enter-btn {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
 
-    .enter-btn:hover {
-      background: #00ffaa;
-      transform: translateX(-50%) scale(1.05);
-    }
+.enter-btn:hover {
+  background: #00ffaa;
+  transform: translateX(-50%) scale(1.05);
+}
   </style>
 </head>
 
