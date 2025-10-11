@@ -125,8 +125,16 @@
       completed: false,
     };
 
-    let currentIndex = progress.currentIndex;
-    let answers = progress.answers;
+    let currentIndex = progress.currentIndex || 0;
+    let answers = progress.answers || [];
+
+    if (progress.currentIndex > 0 && !progress.completed) {
+      if (!confirm(`You have an unfinished quiz at question ${progress.currentIndex + 1}. Resume?`)) {
+        currentIndex = 0;
+        answers = [];
+        saveProgress(subject, quizId, { currentIndex, answers, completed: false});
+      }
+    }
 
     render();
 
