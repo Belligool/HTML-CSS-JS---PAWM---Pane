@@ -1,82 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Choose Your Quiz | StudeeTB</title>
   <link rel="icon" type="image/png" href="images/FaramundoFC.png" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    body {
-      background: #37003c;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
+    /* Small page-specific styles so the page looks as intended.
+       Most styling remains in css/style.css; these are just necessary bits. */
+    body { background: #37003c; color: white; font-family: Arial, sans-serif; margin:0; }
+    header { display:flex; justify-content:space-between; align-items:center; background:#1e0021; padding:10px 20px; }
+    .nav-btn { position:relative; display:inline-block; padding:8px 18px; border-radius:6px; background:cyan; font-weight:bold; color:black; text-decoration:none; }
+    main { text-align:center; padding:60px 20px; }
+    h1 { color:cyan; font-size:2.5rem; margin-bottom:40px; text-shadow:0 0 8px rgba(0,255,255,0.25); }
+
+    .quiz-select { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; padding-bottom:80px; }
+    .subject {
+      position:relative;
+      display:block;
+      width:220px;
+      cursor:pointer;
+      transition: transform .28s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .subject:hover { transform:scale(1.08); z-index:5; }
+    .subject img { width:100%; border-radius:12px; display:block; }
+    .subject img.hovered { position:absolute; top:0; left:0; opacity:0; transition:opacity .32s ease, transform .32s ease; }
+    .subject:hover img.hovered { opacity:1; transform:scale(1.03); }
+    .subject h2 {
+      position:absolute; bottom:14px; left:0; right:0; margin:0; color:white; text-align:center; text-shadow:0 0 6px black; z-index:3;
+      font-size:1.1rem;
     }
 
-    h1 {
-      margin-top: 60px;
-      font-size: 3rem;
-      color: cyan;
-      text-shadow: 0 0 8px #00ffff77;
+    /* Picker & Quiz modal base styles (JS will populate inner content) */
+    #quizPickerModal, #quizModal {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
     }
 
-    .quiz-select {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 80px 20px;
-      min-height: 80vh;
+    /* inside boxes */
+    #pickerInner, #quizInner {
+      width:90%;
+      max-width:640px;
+      background: #28002b;
+      border-radius:12px;
+      border:2px solid cyan;
+      padding:20px;
+      color:white;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      text-align:center;
+      animation: fadeIn .22s ease;
     }
 
-    .quiz-card {
-      position: relative;
-      width: 220px;
-      height: 300px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.35s ease;
+    .quiz-btn, .picker-btn {
+      display:inline-block;
+      margin:12px;
+      padding:10px 18px;
+      background:cyan;
+      color:black;
+      border-radius:8px;
+      font-weight:bold;
+      text-decoration:none;
+      cursor:pointer;
+      border:none;
     }
+    .quiz-btn:hover, .picker-btn:hover { background:#00ffaa; transform:scale(1.03); }
 
-    .quiz-card:hover {
-      transform: scale(1.15);
-      z-index: 10;
-    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
 
-    .quiz-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      border-radius: 12px;
-    }
-
-    .quiz-card img.hovered {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-    }
-
-    .quiz-card:hover img.hovered {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    .quiz-card:hover img.static {
-      opacity: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-    }
+    footer { text-align:center; padding:12px; background:#1e0021; color:#ddd; margin-top:20px; }
   </style>
 </head>
 <body>
+  
   <script>
-    (function () {
+    (function() {
       const loggedInEmail = localStorage.getItem('st_logged_in');
       if (!loggedInEmail) {
         const redirectTo = encodeURIComponent(window.location.pathname.split('/').pop());
@@ -87,41 +92,68 @@
 
   <header>
     <div class="logo">
-      <a href="index.html">
-        <img src="images/FaramundoFC.png" alt="logo" width="48" height="48" />
-      </a>
+      <a href="index.html"><img src="images/FaramundoFC.png" alt="logo" width="48" height="48"></a>
     </div>
     <nav>
-      <ul>
+      <ul style="list-style:none;display:flex;gap:10px;margin:0;padding:0;align-items:center;">
         <li><button id="logoutBtn" class="nav-btn"><span>&lt; Logout &gt;</span></button></li>
         <li><a href="index.html" class="nav-btn"><span>&lt; Back to HOME</span></a></li>
       </ul>
     </nav>
   </header>
 
-  <h1>Take your pick</h1>
-
   <main>
+    <h1>Take your pick</h1>
+
+    
     <section class="quiz-select">
-      <!-- subject cards inserted by quiz.js -->
+      <a class="subject" data-subject="MATHEMATICS" title="Mathematics">
+        <img src="images/subjects/math_static.png" class="static" alt="Mathematics">
+        <img src="images/subjects/math_hover.png" class="hovered" alt="Mathematics hover">
+        <h2>Mathematics</h2>
+      </a>
+
+      <a class="subject" data-subject="CHEMISTRY" title="Chemistry">
+        <img src="images/subjects/chem_static.png" class="static" alt="Chemistry">
+        <img src="images/subjects/chem_hover.png" class="hovered" alt="Chemistry hover">
+        <h2>Chemistry</h2>
+      </a>
+
+      <a class="subject" data-subject="ENGLISH" title="English">
+        <img src="images/subjects/eng_static.png" class="static" alt="English">
+        <img src="images/subjects/eng_hover.png" class="hovered" alt="English hover">
+        <h2>English</h2>
+      </a>
+
+      <a class="subject" data-subject="SPORTS" title="Sports">
+        <img src="images/subjects/sports_static.png" class="static" alt="Sports">
+        <img src="images/subjects/sports_hover.png" class="hovered" alt="Sports hover">
+        <h2>Sports</h2>
+      </a>
+
+      <a class="subject" data-subject="AI" title="AI">
+        <img src="images/subjects/ai_static.png" class="static" alt="AI">
+        <img src="images/subjects/ai_hover.png" class="hovered" alt="AI hover">
+        <h2>AI</h2>
+      </a>
     </section>
   </main>
+
+  
+  <div id="quizPickerModal">
+    <div id="pickerInner"></div>
+  </div>
+
+  
+  <div id="quizModal">
+    <div id="quizInner"></div>
+  </div>
 
   <footer>
     <p>© 2025 Fadhil Rifqi Rabbani Pane - 18223109</p>
   </footer>
 
+  <script src="js/questions.js"></script>
   <script src="js/quiz.js"></script>
-
-  <script>
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('st_logged_in');
-        alert('You have been logged out.');
-        window.location.href = 'index.html';
-      });
-    }
-  </script>
 </body>
 </html>
