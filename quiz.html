@@ -136,6 +136,31 @@
   </style>
 </head>
 <body>
+
+  <div id="profileModal" class="modal" style="display:none;">
+    <div class="modal-content" id="profileInner" style="max-width:720px;">
+      <span class="close-btn" id="profileClose">&times;</span>
+  
+      <div id="profileContent">
+        <h2 style="color:cyan;">Profile</h2>
+        <div id="profileName" style="margin-bottom:10px;">Logged in as: <strong></strong></div>
+  
+        <section style="text-align:left;">
+          <h3 style="color:#fff;margin-bottom:6px;">Courses read</h3>
+          <div id="coursesList" style="display:flex;gap:10px;flex-wrap:wrap;"></div>
+        </section>
+  
+        <section style="margin-top:12px;text-align:left;">
+          <h3 style="color:#fff;margin-bottom:6px;">Quizzes</h3>
+          <div id="quizSummary"></div>
+        </section>
+  
+        <div style="margin-top:14px;text-align:right;">
+          <button class="quiz-action-btn" id="profileCloseBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <script>
     (function() {
@@ -155,6 +180,7 @@
       <ul style="list-style:none;display:flex;gap:10px;margin:0;padding:0;align-items:center;">
         <li><button id="logoutBtn" class="nav-btn"><span>&lt; Logout &gt;</span></button></li>
         <li><a href="index.html" class="nav-btn"><span>&lt; Back to HOME</span></a></li>
+        <li><button id="profileBtn" class="nav-btn"><span>&lt; Profile &gt;</span></button></li>
       </ul>
     </nav>
   </header>
@@ -212,5 +238,7 @@
 
   <script src="js/questions.js"></script>
   <script src="js/quiz.js"></script>
+  <script src="js/profile.js"></script>
+
 </body>
 </html>

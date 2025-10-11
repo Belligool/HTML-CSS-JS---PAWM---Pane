@@ -822,3 +822,53 @@ body {
     transform: scale(1.02);
   }
   
+
+  #profileInner { padding: 20px; }
+  #coursesList .course-item {
+    background: #28002b;
+    border: 2px solid rgba(0,255,200,0.08);
+    padding: 10px 12px;
+    border-radius: 10px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+    min-width: 180px;
+    color: #eee;
+  }
+
+  .course-toggle {
+    margin-left:auto;
+    display:inline-flex;
+    align-items:center;
+  }
+  .switch {
+    width:44px;
+    height:24px;
+    background:#1e0021;
+    border-radius:20px;
+    position:relative;
+    border:2px solid cyan;
+    cursor:pointer;
+  }
+  .switch .knob {
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:white;
+    border-radius:50%;
+    top:50%;
+    transform:translate(3px,-50%);
+    transition: transform 180ms ease, background 180ms ease;
+  }
+  .switch.on {
+    background: #00ffaa;
+  }
+  .switch.on .knob {
+    transform: translate(23px, -50%);
+    background: #28002b;
+  }
+  
+  #quizSummary { color: #ddd; }
+  #quizSummary .line { margin-bottom:6px; }
+  
+  .score-badge { font-weight:bold; color:cyan; margin-left:8px; }
