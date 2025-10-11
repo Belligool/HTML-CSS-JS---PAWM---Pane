@@ -10,133 +10,81 @@
     body {
       background: #37003c;
       color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 3rem;
+      color: cyan;
+      text-shadow: 0 0 8px #00ffff77;
     }
 
     .quiz-select {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 50px;
+      gap: 40px;
       padding: 80px 20px;
       min-height: 80vh;
     }
 
-    .subject {
+    .quiz-card {
       position: relative;
-      display: block;
       width: 220px;
+      height: 300px;
+      overflow: hidden;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.35s ease;
     }
 
-    .subject img {
+    .quiz-card:hover {
+      transform: scale(1.15);
+      z-index: 10;
+    }
+
+    .quiz-card img {
       width: 100%;
-      border-radius: 12px;
+      height: 100%;
+      object-fit: cover;
       transition: opacity 0.3s ease, transform 0.3s ease;
-      display: block;
+      border-radius: 12px;
     }
 
-    .subject:hover {
-      transform: scale(1.1);
-      z-index: 5;
-    }
-
-    .subject img.hovered {
+    .quiz-card img.hovered {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       opacity: 0;
     }
 
-    .subject:hover img.hovered {
+    .quiz-card:hover img.hovered {
       opacity: 1;
+      transform: scale(1.05);
     }
 
-    #quizModal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+    .quiz-card:hover img.static {
+      opacity: 0;
     }
 
-    #quizInner {
-      background: #28002b;
-      border: 2px solid cyan;
-      border-radius: 12px;
-      padding: 20px;
-      width: 90%;
-      max-width: 600px;
-      color: white;
+    footer {
       text-align: center;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-      animation: fadeIn 0.3s ease;
-    }
-
-    .quiz-question {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    .option-btn {
-      display: block;
-      background: cyan;
-      color: black;
-      font-weight: bold;
-      margin: 10px auto;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s;
-    }
-
-    .option-btn:hover {
-      background: #00ffaa;
-      transform: scale(1.05);
-    }
-
-    .quiz-footer {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .quiz-action-btn {
-      background: cyan;
-      color: black;
-      font-weight: bold;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s;
-    }
-
-    .quiz-action-btn:hover {
-      background: #00ffaa;
-      transform: scale(1.05);
-    }
-
-    .small-muted {
+      padding: 20px;
       color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
-
 <body>
+  <script>
+    (function () {
+      const loggedInEmail = localStorage.getItem('st_logged_in');
+      if (!loggedInEmail) {
+        const redirectTo = encodeURIComponent(window.location.pathname.split('/').pop());
+        window.location.href = `login.html?redirect=${redirectTo}`;
+      }
+    })();
+  </script>
+
   <header>
     <div class="logo">
       <a href="index.html">
@@ -151,40 +99,29 @@
     </nav>
   </header>
 
+  <h1>Take your pick</h1>
+
   <main>
     <section class="quiz-select">
-      <a class="subject" data-subject="MATHEMATICS">
-        <img src="images/subjects/math_static.png" alt="Math" />
-        <img src="images/subjects/math_hover.png" class="hovered" alt="Math Hover" />
-      </a>
-      <a class="subject" data-subject="CHEMISTRY">
-        <img src="images/subjects/chem_static.png" alt="Chemistry" />
-        <img src="images/subjects/chem_hover.png" class="hovered" alt="Chem Hover" />
-      </a>
-      <a class="subject" data-subject="ENGLISH">
-        <img src="images/subjects/eng_static.png" alt="English" />
-        <img src="images/subjects/eng_hover.png" class="hovered" alt="English Hover" />
-      </a>
-      <a class="subject" data-subject="SPORTS">
-        <img src="images/subjects/sports_static.png" alt="Sports" />
-        <img src="images/subjects/sports_hover.png" class="hovered" alt="Sports Hover" />
-      </a>
-      <a class="subject" data-subject="AI">
-        <img src="images/subjects/ai_static.png" alt="AI" />
-        <img src="images/subjects/ai_hover.png" class="hovered" alt="AI Hover" />
-      </a>
+      <!-- subject cards inserted by quiz.js -->
     </section>
   </main>
-
-  <div id="quizModal">
-    <div id="quizInner"></div>
-  </div>
 
   <footer>
     <p>© 2025 Fadhil Rifqi Rabbani Pane - 18223109</p>
   </footer>
 
-  <script src="js/questions.js"></script>
   <script src="js/quiz.js"></script>
+
+  <script>
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('st_logged_in');
+        alert('You have been logged out.');
+        window.location.href = 'index.html';
+      });
+    }
+  </script>
 </body>
 </html>
