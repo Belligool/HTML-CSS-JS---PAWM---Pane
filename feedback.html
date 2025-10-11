@@ -59,5 +59,47 @@
     <footer>
         <p>© 2025 Fadhil Rifqi Rabbani Pane - 18223109</p>
     </footer>
+
+    <script>
+        const API_BASE = "https://studee-tb-backend.vercel.app";
+        
+        document.querySelector("form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const userEmail = localStorage.getItem("st_logged_in");
+            if (!userEmail) {
+                alert("Please log in before submitting feedback.");
+                return;
+            }
+          
+            const formData = {
+                email: userEmail,
+                experience: document.getElementById("experience").value,
+                favorite: document.getElementById("favorite").value,
+                improvement: document.getElementById("improvement").value,
+                features: document.getElementById("features").value,
+                recommend: document.querySelector("input[name='recommend']:checked")?.value
+            };
+          
+            try {
+              const res = await fetch(`${API_BASE}/api/feedback`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+              });
+            
+              const data = await res.json();
+              if (res.ok) {
+                alert("✅ Feedback submitted successfully! Thank you!");
+                e.target.reset();
+              } else {
+                alert("⚠️ " + (data.message || "Error submitting feedback."));
+              }
+            } catch (err) {
+              console.error("Feedback submit failed:", err);
+              alert("⚠️ Could not send feedback. Please try again later.");
+            }
+        });
+        </script>
 </body>
 </html>
