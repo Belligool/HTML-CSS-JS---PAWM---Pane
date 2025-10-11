@@ -7,8 +7,6 @@
   <link rel="icon" type="image/png" href="images/FaramundoFC.png" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* Small page-specific styles so the page looks as intended.
-       Most styling remains in css/style.css; these are just necessary bits. */
     body { background: #37003c; color: white; font-family: Arial, sans-serif; margin:0; }
     header { display:flex; justify-content:space-between; align-items:center; background:#1e0021; padding:10px 20px; }
     .nav-btn { position:relative; display:inline-block; padding:8px 18px; border-radius:6px; background:cyan; font-weight:bold; color:black; text-decoration:none; }
@@ -33,7 +31,6 @@
       font-size:1.1rem;
     }
 
-    /* Picker & Quiz modal base styles (JS will populate inner content) */
     #quizPickerModal, #quizModal {
       display:none;
       position:fixed;
@@ -45,7 +42,6 @@
       z-index:9999;
     }
 
-    /* inside boxes */
     #pickerInner, #quizInner {
       width:90%;
       max-width:640px;
@@ -59,20 +55,52 @@
       animation: fadeIn .22s ease;
     }
 
-    .quiz-btn, .picker-btn {
-      display:inline-block;
-      margin:12px;
-      padding:10px 18px;
-      background:cyan;
-      color:black;
-      border-radius:8px;
-      font-weight:bold;
-      text-decoration:none;
-      cursor:pointer;
-      border:none;
+    .quiz-btn {
+      display: inline-block;
+      margin: 12px;
+      padding: 10px 22px;
+      background: cyan;
+      color: black;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.25s ease, transform 0.15s ease;
+      will-change: transform;
     }
-    .quiz-btn:hover, .picker-btn:hover { background:#00ffaa; transform:scale(1.03); }
+    
+    .quiz-btn:hover {
+      background: #00ffaa;
+      transform: translateY(-2px);
+    }
 
+    .option-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 14px 18px;
+      background: #4b0060;
+      color: white;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+    
+    .option-btn:hover {
+      background: cyan;
+      color: black;
+      transform: translateY(-2px);
+      box-shadow: 0 0 14px rgba(0, 255, 255, 0.6);
+    }
+    .option-btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    
     @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
 
     footer { text-align:center; padding:12px; background:#1e0021; color:#ddd; margin-top:20px; }
